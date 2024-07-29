@@ -10,7 +10,7 @@ const OrganizationLayout = ({children}: {
                     <Sidebar />
                 </div>
                 {children}
-            </div>
+            </div>          
         </main>
     );
 };
