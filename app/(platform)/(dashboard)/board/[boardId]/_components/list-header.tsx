@@ -8,12 +8,14 @@ import { List } from "@prisma/client";
 import { FormInput } from "@/components/form/form-input";
 import { useAction } from "@/hooks/use-action";
 import { updateList } from "@/actions/update-list";
+import { ListOptions } from "./list-options";
 
 type ListHeaderProps = {
   data: List;
+  onAddCard: ()=> void;
 };
 
-export const ListHeader = ({ data }: ListHeaderProps) => {
+export const ListHeader = ({ data, onAddCard }: ListHeaderProps) => {
   const [title, setTitle] = useState(data.title);
   const [isEditing, setIsEditing] = useState(false);
 
@@ -107,6 +109,8 @@ export const ListHeader = ({ data }: ListHeaderProps) => {
           {data.title}
         </div>
       )}
+
+    <ListOptions data={data} onAddCard={onAddCard} />
     </div>
   );
 };
